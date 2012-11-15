@@ -34,12 +34,16 @@ Install:
 - Include it at the beginning of your code in every page. This might be useful: <link will go here>
 
 - Afterwards, create a class.
+
   PHP 5.3+ : $_ = new Translate;
+
   Other: $Translate = new Translate;
 
 - Use it. While writing code, just write this in each text comment:
+
   PHP 5.3+ : $_("This_is_a_test_string");
+
   other: $Translate->text("This_is_a_test_string");
 
 - Check it out. It should print "This is a test string" in your browser, add a new row in your table with the keyword "This_is_a_test_string" and the text "This is a test string" and a bunch of other features.
-NOTE: If your website main language [and the one passed in the __constructor()] is in other language, make sure your keyword is that same language!
+NOTE: If your website main language [and the one passed in the __constructor()] is not in English, make sure your keyword is that same language!
