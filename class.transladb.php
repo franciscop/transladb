@@ -27,7 +27,7 @@ class Translate
   /* If the string doesn't exist it creates it. Useful not to break the flow. */
   private function add ( $Id, $Text )
     {
-    $STH = $this->DB->prepare("INSERT INTO translations (keyword, en, page, last) VALUES (?, ?, now())");
+    $STH = $this->DB->prepare("INSERT INTO translations (keyword, en, last) VALUES (?, ?, now())");
     $STH->execute(array($Id,$Text));
     }
   
