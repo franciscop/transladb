@@ -51,4 +51,8 @@ class Translate
     return str_replace("%s", $Arg, $Text);    // Not likely to have more than 2 variables into a single string.
     }
   }
+
+/* Create the object. You might want to change this code somewhere else and/or delete the if statement. */
+if (version_compare(PHP_VERSION, '4.3.0') >= 0) $_ = new Translate;
+else $Translate = new Translate;
 ?>
