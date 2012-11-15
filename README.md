@@ -46,4 +46,4 @@ Install:
   other: $Translate->text("This_is_a_test_string");
 
 - Check it out. It should print "This is a test string" in your browser, add a new row in your table with the keyword "This_is_a_test_string" and the text "This is a test string" and a bunch of other features.
-NOTE: If your website main language [and the one passed in the __constructor()] is not in English, make sure your keyword is that same language!
+NOTE: The keyword (therefore, the text inserted) must be in English.
