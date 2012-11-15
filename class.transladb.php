@@ -53,6 +53,6 @@ class Translate
   }
 
 /* Create the object. You might want to change this code somewhere else and/or delete the if statement. */
-if (version_compare(PHP_VERSION, '4.3.0') >= 0) $_ = new Translate;
-else $Translate = new Translate;
+$Translate = new Translate;    /* Compatible version */
+if (version_compare(PHP_VERSION, '4.3.0') >= 0) $_ = new Translate;  /* If PHP is good enough */
 ?>
