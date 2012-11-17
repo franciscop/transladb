@@ -23,7 +23,7 @@ class Translate
   *  Simplifies the calling method to $_("keyword");
   *  How it works: http://stackoverflow.com/q/13221863/938236
   */
-  public function __invoke( $keyword )
+  public function __invoke( $keyword, $Arg = null )
     {
     $Text = $this->retrieve( $keyword );
     if (empty($Text))
