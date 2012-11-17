@@ -9,8 +9,9 @@ class Translate
   private $Lang;
   private $DB;
   
-  /* Pass the right parameters or you will burn in hell until the end of time.
-  *  Reson for passing $DB instead of extending here: http://stackoverflow.com/q/7827713/938236
+  /* 
+  *  Pass the right parameters or you will die.
+  *  Reson for passing $DB instead of extending the $DB class here: http://stackoverflow.com/q/7827713/938236
   */
   public function __construct ($DB, $Lang)
     {
@@ -18,20 +19,22 @@ class Translate
     $this->Lang = $Lang;
     }
 
-  /* Requires PHP 5.3+. Simplifies the method calling to $_("keyword"); */
-  public function __invoke( $keyword)
+  /*
+  *  Simplifies the calling method to $_("keyword");
+  *  How it works: http://stackoverflow.com/q/13221863/938236
+  */
+  public function __invoke( $keyword )
     {
-    return $this->text( $keyword );
+    $Text = $this->retrieve( $keyword );
+    if (empty($Text))
+      {
+      $Text = str_replace("_", " ", $keyword);  /* If not found, replace all "_" with " " from the input string. */
+      $this->add($keyword, $Text);              /* Adds the new strings dynamically so it doesn't break the flow. */
+      }
+    return str_replace("%s", $Arg, $Text);      /* Not likely to have 2 or more variables into a single string. */
     }
   
-  /* If the string doesn't exist it creates it. Useful not to break the flow. */
-  private function add ( $Id, $Text )
-    {
-    $STH = $this->DB->prepare("INSERT INTO translations (keyword, en, last) VALUES (?, ?, now())");
-    $STH->execute(array($Id,$Text));
-    }
-  
-  /* It returns the right cell, however it might be empty. No default language option. */
+  /* It returns the right cell, however it might be empty. No default language option on purpose. */
   private function retrieve ( $Id )
     {
     $STH = $this->DB->prepare("SELECT * FROM translations WHERE keyword=? LIMIT 1");
@@ -40,19 +43,14 @@ class Translate
     return $row[$this->Lang];
     }
   
-  public function text($Id, $Arg = null)
+  /* If the string doesn't exist it creates it. Useful not to break the coding flow. */
+  private function add ( $Id, $Text )
     {
-    $Text = $this->retrieve($Id);
-    if (empty($Text))
-      {
-      $Text = str_replace("_", " ", $Id);  /* If not found, replace all "_" with " " from the input string. */
-      $this->add($Id, $Text);              /* Adds the new strings dynamically so it doesn't break the flow. */
-      }
-    return str_replace("%s", $Arg, $Text);    // Not likely to have more than 2 variables into a single string.
+    $STH = $this->DB->prepare("INSERT INTO translations (keyword, en, last) VALUES (?, ?, now())");
+    $STH->execute(array($Id,$Text));
     }
   }
 
-/* Create the object. You might want to change this code somewhere else and/or delete the if statement. */
-$Translate = new Translate;    /* Compatible version */
-if (version_compare(PHP_VERSION, '4.3.0') >= 0) $_ = new Translate;  /* If PHP is good enough */
+/* Create the object. You might want to change this line somewhere else. */
+$_ = new Translate;
 ?>
