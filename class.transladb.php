@@ -10,8 +10,7 @@ class Translate
   private $DB;
   
   /* 
-  *  Pass the right parameters or you will die.
-  *  Reson for passing $DB instead of extending the $DB class here: http://stackoverflow.com/q/7827713/938236
+  *  Pass the right parameters. Reason for passing $DB instead of extending the $DB class here: http://stackoverflow.com/q/7827713/938236
   */
   public function __construct ($DB, $Lang)
     {
