@@ -18,7 +18,7 @@ Main features:
 
 Drawbacks:
 
-- It's not error-safe. You need to pass the right PDO connection object, the database and table should already exist and the table should contain the field of your language, the field keyword and another one that it's a timestamp called "last".
+- It's not error-safe. You need to pass the right PDO connection object, the database and table should already exist and the table should contain at least the field of your language, the field "keyword" and another one that it's a timestamp called "last".
 
 - It only works with PHP 5.3. Since this version is from 2009, I think it's proper to drop support to older versions.
 
