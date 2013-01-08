@@ -30,7 +30,7 @@ class Translate
     return str_replace("%s", $Arg, $Text);    // Not likely to have more than 2 variables into a single string.
     }
   
-  /* If the string doesn't exist it creates it. Useful not to break the flow. */
+  /* If the string doesn't exist it creates it. Useful not to break the coding flow. */
   private function add ($Id, $Text)
     {
     $STH = $this->DB->prepare("INSERT INTO translations (keyword, en, last) VALUES (?, ?, now())");
