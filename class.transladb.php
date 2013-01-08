@@ -1,5 +1,4 @@
 <?php
-<?php
 /* 
 * Transladb
 * @Version  0.8
