@@ -34,15 +34,16 @@ Requisites:
 
 Install:
 
-[In the future: run install.php]
-
 - Copy the file somewhere in your filesystem.
 
-- Include it at the beginning of your code in every page. This might be useful: [link will go here]
+- Include it at the beginning of your code in every page.
 
-- Use it. While writing code, just write this where you'd normally write some text: $_("This_is_a_test_string");
+- Put the right name of the PDO object in the "$_ = new Translate($DB, $Language);" statement, it's expecting it, as well as the user's language (or your page one).
+
+- Use it. While writing code, just write this where you'd normally write some text: echo $_("%s is working!", TranslateDB);
 
 - Check it out. It should print "This is a test string" in your browser, add a new row in your table with the keyword "This_is_a_test_string" and the text "This is a test string" and a bunch of other features. NOTE: The keyword (therefore, also the default text inserted) must be in English.
 
 Warning: The file automatically creates the object. Make sure there's no other object with the same name or change it.
-Warning 2: If you are trying to use it directly inside a function, your function design might be wrong. Else, remember to pass the object.
+
+Warning 2: If you are trying to use it directly inside a function, remember to pass the object, but also check your code as it's strange.
