@@ -48,6 +48,8 @@ class Translate
   }
 
 /* Create the object. You might want to change this line somewhere else. */
-$_ = new Translate;
+$_ = new Translate ($DB, $Language);
+
+/* Testing the object. It should display "This is a test to show how TranslateDB works" */
 echo $_("This is a test to show how %s works", "TranslateDB");
 ?>
