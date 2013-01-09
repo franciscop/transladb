@@ -30,7 +30,7 @@ Requisites:
 
 - MySQL
 
-- A database with a table named "translations" containing, at least, these columns: keyword (varchar(200)), page (varchar(2000)), last (timestamp), en (bigtext).
+- A database with a table named "translations" containing, at least, these columns: "keyword" (varchar(200)), "page" (varchar(2000)), "last" (timestamp), "en" (bigtext).
 
 Install:
 
