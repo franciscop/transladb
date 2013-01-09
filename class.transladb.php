@@ -1,7 +1,7 @@
 <?php
 /* 
 * Transladb
-* @Version  0.8
+* @License  GNU GPL 3+
 * @Author   Francisco Presencia Fandos
 */
 class Translate
