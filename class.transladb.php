@@ -9,7 +9,7 @@ class Translate
   private $Lang;
   private $DB;
   
-  /* Pass the right parameters or you will burn in hell until the end of time. */
+  /* Set the needed values in the initialization. */
   public function __construct ($DB, $Lang)
     {
     $this->DB = $DB;
@@ -47,7 +47,7 @@ class Translate
     }
   }
 
-/* Create the object. You might want to change this line somewhere else. */
+/* Create the object. You might want to change this line somewhere else. Will automatically throw error if not set. */
 $_ = new Translate ($DB, $Language);
 
 /* Testing the object. It should display "This is a test to show how TranslateDB works" */
