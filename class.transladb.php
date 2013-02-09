@@ -33,7 +33,7 @@ class Translate
   /* Adds to database a new translation row in English. */
   public function add ($Id, $Text)
     {
-    $STH = $this->DB->prepare("INSERT INTO translations (keyword, en, last) VALUES (?, ?, now())
+    $STH = $this->DB->prepare("INSERT INTO translations (keyword, en) VALUES (?, ?)
                                 ON DUPLICATE KEY UPDATE en = ?");
     $STH->execute(array($Id, $Text, $Text));
     return $Text;
