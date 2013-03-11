@@ -20,8 +20,6 @@ Drawbacks:
 
 - It's not error-safe. You need to pass the right PDO connection object, the database and table should already exist and the table should contain at least the field of your language and the field "keyword".
 
-- It only works with PHP 5.3. Since this version is from 2009, I think it's proper to drop support to older versions.
-
 - So far, you need other tool to complete other languages (like phpMyAdmin).
 
 Requisites:
@@ -30,7 +28,7 @@ Requisites:
 
 - MySQL
 
-- A database with a table named "translations" containing, at least, these columns: "keyword" (varchar(200)), "last" (timestamp), "en" (bigtext).
+- A database with a table named "translations" containing, at least, these columns: "id" (varchar(200)), "timestamp" (timestamp), "en" (bigtext).
 
 Install:
 
