@@ -32,7 +32,7 @@ class Translate
     }
   
   // Adds to database a new translation row in English. This method is disabled in production (and can be deleted).
-  public function add ($Id, $Text)
+  private function add ($Id, $Text)
     {
     // Ignore not to overwrite the old translations.
     $STH = $this->DB->prepare("INSERT IGNORE INTO translate (keyword, en) VALUES (?, ?)");
