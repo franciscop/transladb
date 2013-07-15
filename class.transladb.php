@@ -17,7 +17,7 @@ class Translate
     }
 
   /* Requires PHP 5.3+. Simplifies the calling method to echo $_('keyword'); */
-  public function __invoke($Key, $Arg = null)
+  public function __invoke($Key)
     {
     $Id = substr($Key, 0, 64);
     /* If there's no text string yet */
@@ -26,8 +26,7 @@ class Translate
       /* Add the string dynamically to database so it doesn't break the coding flow. */
       $Text = $this->add($Id, $Key);
       }
-    /* Not likely to have 2 or more variables into a single string. */
-    return str_replace("%s", $Arg, $Text);
+    return $Text;
     }
   
   /* Adds to database a new translation row in English. */
