@@ -1,9 +1,10 @@
 <?php
 /*
-* Transladb
-* @Version  0.8
-* @Author   Francisco Presencia Fandos
-*/
+ * Transladb
+ * @Version   0.8
+ * @Author    Francisco Presencia Fandos
+ * @Requires  PHP 5.3+
+ */
 class Translate
   {
   // Automatically add the word if it doesn't exist yet. Recommended: deactivate on production.
