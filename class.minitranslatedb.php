@@ -18,7 +18,7 @@ class Translate {
   // Requires PHP 5.3+. Simplifies the calling method to: echo $_('keyword');
   public function __invoke($Key) {
     $STH = $this->DB->prepare("SELECT * FROM translations WHERE keyword=? LIMIT 1");
-    $STH->execute(array(substr($Key, 0, 64)));
+    $STH->execute(array(substr($Key, 0, 200)));   // A reasonable limit for the keyword.
     $row = $STH->fetch();
     return $row[$this->Language];
     }
