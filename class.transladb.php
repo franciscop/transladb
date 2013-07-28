@@ -24,7 +24,8 @@ class Translate
   // Requires PHP 5.3+. Simplifies the calling method to echo $_('keyword');
   public function __invoke($Key)
     {
-    $Id = substr($Key, 0, 64);
+    $Id = substr($Key, 0, 200);         // A reasonable limit for the keyword. It's okay if it's longer.
+    
     // If there's no text string yet
     if (!($Text = $this->retrieve($Id)) && $AutoAdd)
       {
