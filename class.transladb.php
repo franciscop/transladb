@@ -7,16 +7,18 @@
  */
 class Translate
   {
-  // Automatically add the word if it doesn't exist yet. Recommended: deactivate on production.
-  private $AutoAdd = 1;
-  
-  private $Language;
+  // The PDO object
   private $DB;
+  // This stores the language of the translations. Format: "en", "es", "fr", etc
+  private $Language;
+  // This will add a new translation if the keyword is not in the database yet.
+  private $AutoAdd;
   
-  public function __construct (PDO $DB, $Language)
+  public function __construct (PDO $DB, $Language = "en", $AutoAdd = 1)
     {
     $this->DB = $DB;
     $this->Language = $Language;
+    $this->AutoAdd = $AutoAdd;
     }
 
   // Requires PHP 5.3+. Simplifies the calling method to echo $_('keyword');
