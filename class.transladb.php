@@ -24,7 +24,7 @@ class Translate
   // Requires PHP 5.3+. Simplifies the calling method to echo $_('keyword');
   public function __invoke($Key)
     {
-    $Id = substr($Key, 0, 200);         // A reasonable limit for the keyword. It's okay if it's longer.
+    $Id = substr($Key, 0, 200);         // A reasonable limit for the keyword. It'll work even if it's longer..
     
     // If there's no text string yet
     if (!($Text = $this->retrieve($Id)) && $AutoAdd)
@@ -40,11 +40,11 @@ class Translate
     {
     // Ignore not to overwrite the old translations.
     $STH = $this->DB->prepare("INSERT IGNORE INTO translate (keyword, en) VALUES (?, ?)");
-    $STH->execute(array($Id, $Text, $Text));
+    $STH->execute(array($Id, $Text));
     return $Text;
     }
   
-  // It returns the right cell, however it might be empty. No default language option.
+  // It returns the right cell, however it might be empty.
   private function retrieve ($Id)
     {
     $STH = $this->DB->prepare("SELECT * FROM translations WHERE keyword=? LIMIT 1");
