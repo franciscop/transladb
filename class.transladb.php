@@ -27,7 +27,7 @@ class Translate
     $Id = substr($Key, 0, 200);         // A reasonable limit for the keyword. It'll work even if it's longer..
     
     // If there's no text string yet
-    if (!($Text = $this->retrieve($Id)) && $AutoAdd)
+    if (!($Text = $this->retrieve($Id)) && $this->AutoAdd)
       {
       // Add the string dynamically to database so it doesn't break the coding flow.
       $Text = $this->add($Id, $Key);
