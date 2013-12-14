@@ -11,7 +11,7 @@ class Translate
   private $DB;
   // This stores the language of the translations. Format: "en", "es", "fr", etc
   private $Language;
-  // This will add a new translation if the keyword is not in the database yet.
+  // This will add a new translation if the keyword is not in the database yet. Dissable in production (recommended)
   private $AutoAdd;
   
   public function __construct (PDO $DB, $Language = "en", $AutoAdd = 1)
